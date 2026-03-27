@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pairly — Terms of Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #E8A4A4;
+      --primary-dark: #D4848D;
+      --primary-light: #FFD1D1;
+      --secondary: #A67B5B;
+      --secondary-light: #C9A77C;
+      --secondary-dark: #8B5A3C;
+      --background: #FFF9F5;
+      --background-pink: #FFF0F0;
+      --background-card: #FFFFFF;
+      --accent: #FFB6C1;
+      --accent-green: #98D4A0;
+      --accent-blue: #A8D8EA;
+      --accent-yellow: #FFE5A0;
+      --accent-purple: #D4A5D9;
+      --text: #3D2C2C;
+      --text-muted: #9B7B7B;
+      --border: #F5DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,249,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .page-wrapper {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      background: var(--accent-yellow);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0 2.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .policy-section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .section-label span {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--secondary);
+      margin-top: 0.15rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .section-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .section-body p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body p:last-child { margin-bottom: 0; }
+
+    .section-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body ul li {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .section-body ul li::before {
+      content: '♡';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 0.7rem;
+      top: 0.25em;
+    }
+
+    .section-body a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .section-body a:hover { text-decoration: underline; }
+
+    /* Pricing callout */
+    .pricing-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+
+    .pricing-card {
+      background: var(--background-pink);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1.2rem;
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(135deg, var(--primary-light), #fff);
+      border-color: var(--primary);
+    }
+
+    .pricing-badge {
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .pricing-card .price {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--primary-dark); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer strong { color: var(--text); font-weight: 500; }
+
+    @media (max-width: 620px) {
+      nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      .policy-section { grid-template-columns: 1fr; gap: 0.5rem; }
+      .pricing-box { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">🌸 Pairly</a>
+    <ul class="nav-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/" class="active">Terms of Service</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">Terms of Service</h1>
+    <p class="page-meta">Last updated: March 27, 2026</p>
+
+    <div class="policy-section">
+      <div class="section-label">Section 01 <span>Agreement</span></div>
+      <div class="section-body">
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing or using Pairly ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the App. Pairly is a couple bonding platform for iOS, and these Terms apply to all users who pair and connect through it.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 02 <span>About</span></div>
+      <div class="section-body">
+        <h2>Description of Service</h2>
+        <p>Pairly is a couple bonding application for iOS that allows partners to share messages, doodles, digital gifts, and moods with each other. Together, couples can nurture a virtual plant and care for a virtual animal companion, answer daily relationship questions, and enjoy interactive games designed to deepen their connection.</p>
+        <p>Pairly is exclusively designed for two-person romantic partnerships. Features are accessible only when both partners have paired their accounts.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 03 <span>Accounts</span></div>
+      <div class="section-body">
+        <h2>User Accounts &amp; Pairing</h2>
+        <p>To use Pairly, you must create an account and pair with your partner. You agree to:</p>
+        <ul>
+          <li>Provide accurate and complete information during registration</li>
+          <li>Maintain the security of your account credentials</li>
+          <li>Notify us immediately of any unauthorised access to your account</li>
+          <li>Accept responsibility for all activities that occur under your account</li>
+          <li>Only pair with one partner at a time, as Pairly is designed for exclusive two-person connections</li>
+        </ul>
+        <p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 04 <span>Rules</span></div>
+      <div class="section-body">
+        <h2>Acceptable Use</h2>
+        <p>You agree not to:</p>
+        <ul>
+          <li>Use the App for any unlawful purpose or to harass, abuse, or harm others</li>
+          <li>Share content that is offensive, harmful, or violates any applicable laws</li>
+          <li>Attempt to gain unauthorised access to the App or its systems</li>
+          <li>Interfere with or disrupt the App's functionality</li>
+          <li>Reverse engineer, decompile, or disassemble any part of the App</li>
+          <li>Upload malicious content, spam, or harmful code</li>
+          <li>Impersonate any person or misrepresent your relationship to another user</li>
+          <li>Use the App to stalk, monitor, or harm another individual</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 05 <span>Plans</span></div>
+      <div class="section-body">
+        <h2>Subscriptions and Payments</h2>
+        <p>Pairly offers a free tier and a Premium subscription. Premium features include unlimited messaging, all doodle tools, exclusive gift options, advanced plant and animal companions, and an ad-free experience.</p>
+
+        <div class="pricing-box">
+          <div class="pricing-card featured">
+            <div class="pricing-badge">Best Value</div>
+            <h4>Annual Plan</h4>
+            <p class="price">$29.99 / year · Save 30%</p>
+          </div>
+          <div class="pricing-card">
+            <h4>Monthly Plan</h4>
+            <p class="price">$3.99 / month · Cancel anytime</p>
+          </div>
+        </div>
+
+        <p>Subscriptions are processed through the Apple App Store.</p>
+        <ul>
+          <li>Subscription fees are billed in advance on a recurring basis</li>
+          <li>You may cancel at any time through your App Store settings</li>
+          <li>Refunds are subject to Apple's App Store refund policies</li>
+          <li>We reserve the right to modify pricing with reasonable notice</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 06 <span>IP</span></div>
+      <div class="section-body">
+        <h2>Intellectual Property</h2>
+        <p>All content, features, and functionality of the App — including designs, graphics, logos, icons, animations, and software — are the exclusive property of Pairly and are protected by applicable intellectual property laws.</p>
+        <p>You are granted a limited, non-exclusive, non-transferable licence to use the App for personal, non-commercial purposes within your romantic partnership.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 07 <span>Content</span></div>
+      <div class="section-body">
+        <h2>User Content</h2>
+        <p>You retain ownership of any content you create or share through the App, including messages, doodles, moods, and other couple content. By using the App, you grant us a limited licence to store, process, and deliver your content solely for the purpose of providing the service to you and your partner.</p>
+        <p>We do not claim ownership of your messages, doodles, or any personal content you share within Pairly.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 08 <span>Disclaimer</span></div>
+      <div class="section-body">
+        <h2>Disclaimer of Warranties</h2>
+        <p>The App is provided on an "as is" and "as available" basis without warranties of any kind. Pairly does not guarantee uninterrupted access or the permanent availability of any feature. Virtual companions (plants and animals) are digital only and carry no real-world obligations or responsibilities.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 09 <span>Liability</span></div>
+      <div class="section-body">
+        <h2>Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Pairly shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of the App, loss of data, or issues arising from your relationship.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 10 <span>End</span></div>
+      <div class="section-body">
+        <h2>Termination</h2>
+        <p>We may terminate or suspend your access to the App at any time, without prior notice, for conduct that violates these Terms. Upon termination, your right to use the App will immediately cease. You may request deletion of your data by contacting us at <a href="mailto:support@pairly.app">support@pairly.app</a>.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 11 <span>Law</span></div>
+      <div class="section-body">
+        <h2>Governing Law</h2>
+        <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Pairly operates, without regard to conflict of law principles.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 12 <span>Updates</span></div>
+      <div class="section-body">
+        <h2>Changes to Terms</h2>
+        <p>We reserve the right to modify these Terms at any time. Changes will be posted within the App or on our website. Your continued use of the App after changes are posted constitutes your acceptance of the revised Terms.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 13 <span>Contact</span></div>
+      <div class="section-body">
+        <h2>Contact Us</h2>
+        <p>If you have any questions about these Terms of Service, contact us at:</p>
+        <ul>
+          <li>Email: <a href="mailto:support@pairly.app">support@pairly.app</a></li>
+          <li>App: <strong>Pairly — Closer, together.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 <strong>Pairly</strong> &middot; All rights reserved &middot; <a href="mailto:support@pairly.app">support@pairly.app</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pairly — Legal & Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #E8A4A4;
+      --primary-dark: #D4848D;
+      --primary-light: #FFD1D1;
+      --secondary: #A67B5B;
+      --secondary-light: #C9A77C;
+      --secondary-dark: #8B5A3C;
+      --background: #FFF9F5;
+      --background-pink: #FFF0F0;
+      --background-card: #FFFFFF;
+      --accent: #FFB6C1;
+      --accent-green: #98D4A0;
+      --accent-blue: #A8D8EA;
+      --accent-yellow: #FFE5A0;
+      --accent-purple: #D4A5D9;
+      --text: #3D2C2C;
+      --text-muted: #9B7B7B;
+      --border: #F5DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,249,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .nav-logo .heart {
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* HERO */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 5rem 2rem 3rem;
+      text-align: center;
+      background: radial-gradient(ellipse at 60% 0%, #FFD1D1 0%, transparent 60%),
+                  radial-gradient(ellipse at 10% 80%, #FFE5A0 0%, transparent 50%),
+                  var(--background);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--primary-dark);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 3.5rem;
+    }
+
+    /* CARDS GRID */
+    .cards-section {
+      padding: 1rem 2rem 5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--background-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem 2rem 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--primary-light) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.22s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(212,132,141,0.15);
+      border-color: var(--primary);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-badge {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      position: relative;
+    }
+
+    .card p {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
+      flex: 1;
+      position: relative;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--primary-dark);
+      margin-top: 0.5rem;
+      position: relative;
+    }
+
+    .card-cta svg {
+      transition: transform 0.2s;
+    }
+
+    .card:hover .card-cta svg {
+      transform: translateX(3px);
+    }
+
+    /* decorative dot on card */
+    .card-dot {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    footer strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+      .cards-section { padding: 1rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      <span class="heart">🌸</span> Pairly
+    </a>
+    <ul class="nav-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-eyebrow">💕 For couples, by design</div>
+    <h1>Legal &amp; <em>Support</em></h1>
+    <p>Everything you need to know about your rights, our policies, and how to reach us. Your love story deserves full transparency.</p>
+  </section>
+
+  <section class="cards-section">
+    <div class="cards-grid">
+
+      <a href="/privacy-policy/" class="card">
+        <div class="card-dot" style="background: linear-gradient(135deg, var(--primary-light), var(--accent));"></div>
+        <span class="card-badge">Legal</span>
+        <h2>Privacy Policy</h2>
+        <p>How we collect, use, and protect your personal information and your relationship's private moments within Pairly.</p>
+        <span class="card-cta">Read
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a href="/terms-of-service/" class="card">
+        <div class="card-dot" style="background: linear-gradient(135deg, var(--accent-yellow), var(--secondary-light));"></div>
+        <span class="card-badge">Legal</span>
+        <h2>Terms of Service</h2>
+        <p>The rules and agreements that govern your use of Pairly, our couple bonding features, games, and shared experiences.</p>
+        <span class="card-cta">Read
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a href="/contact/" class="card">
+        <div class="card-dot" style="background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));"></div>
+        <span class="card-badge">Support</span>
+        <h2>Contact Us</h2>
+        <p>Have a question or need help? We'd love to hear from you and make sure your Pairly experience is perfect.</p>
+        <span class="card-cta">Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 <strong>Pairly</strong> &middot; All rights reserved &middot; <a href="mailto:support@pairly.app">support@pairly.app</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pairly — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #E8A4A4;
+      --primary-dark: #D4848D;
+      --primary-light: #FFD1D1;
+      --secondary: #A67B5B;
+      --secondary-light: #C9A77C;
+      --secondary-dark: #8B5A3C;
+      --background: #FFF9F5;
+      --background-pink: #FFF0F0;
+      --background-card: #FFFFFF;
+      --accent: #FFB6C1;
+      --accent-green: #98D4A0;
+      --accent-blue: #A8D8EA;
+      --accent-yellow: #FFE5A0;
+      --accent-purple: #D4A5D9;
+      --text: #3D2C2C;
+      --text-muted: #9B7B7B;
+      --border: #F5DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,249,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* PAGE LAYOUT */
+    .page-wrapper {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    /* PAGE HEADER */
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      background: var(--primary-light);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-meta {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 3.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* SECTIONS */
+    .policy-section {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 0 2.5rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .policy-section:last-of-type { border-bottom: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .section-label span {
+      display: block;
+      font-size: 0.65rem;
+      color: var(--primary-dark);
+      margin-top: 0.15rem;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+    }
+
+    .section-body h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .section-body p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body p:last-child { margin-bottom: 0; }
+
+    .section-body h3 {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--secondary);
+      margin: 1.2rem 0 0.4rem;
+    }
+
+    .section-body ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .section-body ul li {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      padding-left: 1.2rem;
+      position: relative;
+      line-height: 1.65;
+    }
+
+    .section-body ul li::before {
+      content: '♡';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 0.7rem;
+      top: 0.25em;
+    }
+
+    .section-body a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .section-body a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--primary-dark); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer strong { color: var(--text); font-weight: 500; }
+
+    @media (max-width: 620px) {
+      nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      .policy-section { grid-template-columns: 1fr; gap: 0.5rem; }
+      .section-label { display: flex; align-items: center; gap: 0.5rem; }
+      .section-label span { margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">🌸 Pairly</a>
+    <ul class="nav-links">
+      <li><a href="/privacy-policy/" class="active">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">Privacy Policy</h1>
+    <p class="page-meta">Last updated: March 27, 2026</p>
+
+    <div class="policy-section">
+      <div class="section-label">Section 01 <span>Intro</span></div>
+      <div class="section-body">
+        <h2>Introduction</h2>
+        <p>Welcome to Pairly. Your privacy — and your relationship's privacy — matters deeply to us. This Privacy Policy explains how we collect, use, and protect your information when you use Pairly, the bonding app designed exclusively for couples.</p>
+        <p>By using the app, you agree to the collection and use of information in accordance with this policy. Pairly is built on trust, just like every great relationship.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 02 <span>Data</span></div>
+      <div class="section-body">
+        <h2>Information We Collect</h2>
+
+        <h3>a. Account Information</h3>
+        <p>When you create an account, we may collect:</p>
+        <ul>
+          <li>Name and display name</li>
+          <li>Email address</li>
+          <li>Password (securely encrypted)</li>
+          <li>Partner connection details (your paired partner's ID)</li>
+        </ul>
+
+        <h3>b. Shared Couple Content</h3>
+        <p>To power your shared Pairly experience, we collect and store:</p>
+        <ul>
+          <li>Messages and notes shared between partners</li>
+          <li>Doodles, drawings, and creative content you exchange</li>
+          <li>Moods and mood history you log together</li>
+          <li>Virtual plant and animal care activity data</li>
+          <li>Question-and-answer responses and quiz game results</li>
+          <li>Gifts and digital surprises sent within the app</li>
+        </ul>
+
+        <h3>c. App Usage Data</h3>
+        <ul>
+          <li>Feature usage patterns to improve your experience</li>
+          <li>Device type and operating system (iOS only)</li>
+          <li>Crash reports and diagnostics</li>
+        </ul>
+
+        <h3>d. Payment Information</h3>
+        <p>Subscriptions are processed through the Apple App Store. We do not store or access your payment details — payment data is handled securely by Apple.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 03 <span>Usage</span></div>
+      <div class="section-body">
+        <h2>How We Use Your Information</h2>
+        <p>We use your information to:</p>
+        <ul>
+          <li>Create and manage your account and couple pairing</li>
+          <li>Deliver messages, doodles, moods, and gifts to your partner in real time</li>
+          <li>Keep track of your virtual plant and animal companions</li>
+          <li>Personalise your daily questions and game suggestions</li>
+          <li>Save your shared memories and milestones</li>
+          <li>Provide customer support when you need us</li>
+          <li>Process subscriptions and manage premium features</li>
+          <li>Improve app performance and bonding features</li>
+          <li>Send relevant notifications (if enabled by you)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 04 <span>Security</span></div>
+      <div class="section-body">
+        <h2>Data Storage and Security</h2>
+        <p>We take reasonable measures to protect your data and your relationship's private content, including:</p>
+        <ul>
+          <li>Encrypted storage of account credentials and messages</li>
+          <li>Secure servers with restricted access</li>
+          <li>Industry-standard HTTPS communication</li>
+          <li>Access limited strictly to your paired couple</li>
+        </ul>
+        <p>No system is 100% secure, and we cannot guarantee absolute security. We do, however, implement industry-standard practices to safeguard your data and your shared moments.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 05 <span>Sharing</span></div>
+      <div class="section-body">
+        <h2>Data Sharing</h2>
+        <p>We do not sell or rent your personal data. Your intimate couple content is never shared with third parties for marketing or advertising. We may share data only:</p>
+        <ul>
+          <li>With trusted service providers (hosting, analytics, push notification services)</li>
+          <li>If required by applicable law</li>
+          <li>To protect the rights or safety of users or third parties</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 06 <span>Deletion</span></div>
+      <div class="section-body">
+        <h2>Account Deletion</h2>
+        <p>You may request account deletion at any time by:</p>
+        <ul>
+          <li>Using the in-app "Delete Account" option in Profile &amp; Settings</li>
+          <li>Contacting us at <a href="mailto:support@pairly.app">support@pairly.app</a></li>
+        </ul>
+        <p>When your account is deleted, your personal data, messages, doodles, moods, and all shared couple content will be permanently removed from our servers.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 07 <span>Children</span></div>
+      <div class="section-body">
+        <h2>Children's Privacy</h2>
+        <p>Pairly is intended for adults in romantic relationships. This app is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 08 <span>Updates</span></div>
+      <div class="section-body">
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted within the app or on our website. We will notify you of significant changes via email or an in-app notice.</p>
+      </div>
+    </div>
+
+    <div class="policy-section">
+      <div class="section-label">Section 09 <span>Contact</span></div>
+      <div class="section-body">
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, contact us at:</p>
+        <ul>
+          <li>Email: <a href="mailto:support@pairly.app">support@pairly.app</a></li>
+          <li>App: <strong>Pairly — Closer, together.</strong></li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 <strong>Pairly</strong> &middot; All rights reserved &middot; <a href="mailto:support@pairly.app">support@pairly.app</a>
+  </footer>
+
+</body>
+</html>

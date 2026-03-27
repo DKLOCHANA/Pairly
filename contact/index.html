@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pairly — Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #E8A4A4;
+      --primary-dark: #D4848D;
+      --primary-light: #FFD1D1;
+      --secondary: #A67B5B;
+      --secondary-light: #C9A77C;
+      --secondary-dark: #8B5A3C;
+      --background: #FFF9F5;
+      --background-pink: #FFF0F0;
+      --background-card: #FFFFFF;
+      --accent: #FFB6C1;
+      --accent-green: #98D4A0;
+      --accent-blue: #A8D8EA;
+      --accent-yellow: #FFE5A0;
+      --accent-purple: #D4A5D9;
+      --text: #3D2C2C;
+      --text-muted: #9B7B7B;
+      --border: #F5DDD8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,249,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .page-wrapper {
+      flex: 1;
+      max-width: 780px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    .page-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #5A8A60;
+      background: #D8F0DA;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* INFO TILES */
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .info-tile {
+      background: var(--background-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .info-tile-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .info-tile-value {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .info-tile-value a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    .info-tile-value a:hover { text-decoration: underline; }
+
+    /* FORM */
+    .form-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    input, select, textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--background-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.7rem 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      appearance: none;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--text-muted); }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(232,164,164,0.18);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%239B7B7B' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .submit-btn {
+      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-dark);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .submit-btn:hover {
+      background: var(--secondary-dark);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:active { transform: translateY(0); }
+
+    /* Toast messages */
+    .toast {
+      display: none;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+      padding: 0.85rem 1.1rem;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 400;
+    }
+
+    .toast.success {
+      background: #E6F6E8;
+      border: 1px solid #B0DDB5;
+      color: #3A7040;
+    }
+
+    .toast.error {
+      background: var(--background-pink);
+      border: 1px solid var(--primary);
+      color: var(--primary-dark);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--text-muted);
+    }
+
+    footer a { color: var(--primary-dark); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer strong { color: var(--text); font-weight: 500; }
+
+    @media (max-width: 620px) {
+      nav { padding: 0 1rem; }
+      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
+      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      .contact-info { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-logo">🌸 Pairly</a>
+    <ul class="nav-links">
+      <li><a href="/privacy-policy/">Privacy Policy</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+      <li><a href="/contact/" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <div class="page-eyebrow">Support</div>
+    <h1 class="page-title">Contact Us</h1>
+    <p class="page-subtitle">Have a question, feedback, or need support? We'd love to hear from you and make your Pairly experience even better.</p>
+
+    <div class="contact-info">
+      <div class="info-tile">
+        <span class="info-tile-label">Email</span>
+        <span class="info-tile-value"><a href="mailto:support@pairly.app">support@pairly.app</a></span>
+      </div>
+      <div class="info-tile">
+        <span class="info-tile-label">App</span>
+        <span class="info-tile-value">Pairly — iOS</span>
+      </div>
+      <div class="info-tile">
+        <span class="info-tile-label">Response time</span>
+        <span class="info-tile-value">Within 1–2 business days</span>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>Send us a message</h2>
+
+      <div class="toast success" id="toast-success">
+        💕 Message sent! Thanks for reaching out. We'll get back to you within 1–2 business days.
+      </div>
+      <div class="toast error" id="toast-error">
+        Something went wrong. Please try again or email us directly at support@pairly.app
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+          </div>
+
+          <div class="form-group full">
+            <label for="subject">Subject</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Select a topic…</option>
+              <option>Account &amp; Login</option>
+              <option>Pairing with Partner</option>
+              <option>Subscription &amp; Billing</option>
+              <option>Messages &amp; Doodles</option>
+              <option>Plant or Animal Companion</option>
+              <option>Games &amp; Questions</option>
+              <option>Bug Report</option>
+              <option>Feature Request</option>
+              <option>Privacy &amp; Data</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Message
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+    </div>
+
+  </main>
+
+  <footer>
+    &copy; 2026 <strong>Pairly</strong> &middot; All rights reserved &middot; <a href="mailto:dklochanaedirisooriya@gmail.com">support@pairly.app</a>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const toastSuccess = document.getElementById('toast-success');
+    const toastError = document.getElementById('toast-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      toastSuccess.style.display = 'none';
+      toastError.style.display = 'none';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const subject = document.getElementById('subject').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        toastError.style.display = 'flex';
+        return;
+      }
+
+      // Mailto fallback — works without a backend
+      const mailto = `mailto:dklochanaedirisooriya@gmail.com?subject=${encodeURIComponent('[Pairly Support] ' + subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+      window.location.href = mailto;
+
+      // Show success after a short delay
+      setTimeout(() => {
+        toastSuccess.style.display = 'flex';
+        form.reset();
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
