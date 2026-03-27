@@ -87,6 +87,37 @@
       color: var(--primary-dark);
     }
 
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2.5px;
+      background-color: var(--text-muted);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
     /* PAGE LAYOUT */
     .page-wrapper {
       flex: 1;
@@ -245,9 +276,40 @@
     footer strong { color: var(--text); font-weight: 500; }
 
     @media (max-width: 620px) {
-      nav { padding: 0 1rem; }
-      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
-      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      nav { padding: 0 1rem; height: 56px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255,249,245,0.98);
+        backdrop-filter: blur(12px);
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.active {
+        max-height: 300px;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        font-size: 0.95rem;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--background-pink);
+      }
+      .nav-logo { font-size: 1.2rem; }
+      .page-wrapper { padding: 2rem 1.25rem 4rem; margin-top: 1rem; }
       .policy-section { grid-template-columns: 1fr; gap: 0.5rem; }
       .section-label { display: flex; align-items: center; gap: 0.5rem; }
       .section-label span { margin-top: 0; }
@@ -257,12 +319,17 @@
 <body>
 
   <nav>
-    <a href="/Pairly/" class="nav-logo">🌸 Pairly</a>
-    <ul class="nav-links">
-      <li><a href="/Pairly/privacy-policy/" class="active">Privacy Policy</a></li>
-      <li><a href="/Pairly/terms-of-service/">Terms of Service</a></li>
-      <li><a href="/Pairly/contact/">Contact</a></li>
+    <a href="../" class="nav-logo">🌸 Pairly</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="../privacy-policy/" class="active">Privacy Policy</a></li>
+      <li><a href="../terms-of-service/">Terms of Service</a></li>
+      <li><a href="../contact/">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <main class="page-wrapper">
@@ -410,6 +477,24 @@
   <footer>
     &copy; 2026 <strong>Pairly</strong> &middot; All rights reserved &middot; <a href="mailto:support@pairly.app">support@pairly.app</a>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu.querySelectorAll('a');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
 
 </body>
 </html>

@@ -86,6 +86,37 @@
       color: var(--primary-dark);
     }
 
+    /* HAMBURGER MENU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 0.4rem;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2.5px;
+      background-color: var(--text-muted);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
     .page-wrapper {
       flex: 1;
       max-width: 780px;
@@ -293,9 +324,40 @@
     footer strong { color: var(--text); font-weight: 500; }
 
     @media (max-width: 620px) {
-      nav { padding: 0 1rem; }
-      .nav-links a { padding: 0.35rem 0.6rem; font-size: 0.8rem; }
-      .page-wrapper { padding: 2rem 1.25rem 4rem; }
+      nav { padding: 0 1rem; height: 56px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255,249,245,0.98);
+        backdrop-filter: blur(12px);
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.active {
+        max-height: 300px;
+      }
+      .nav-links li {
+        width: 100%;
+      }
+      .nav-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        border-radius: 0;
+        font-size: 0.95rem;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        background: var(--background-pink);
+      }
+      .nav-logo { font-size: 1.2rem; }
+      .page-wrapper { padding: 2rem 1.25rem 4rem; margin-top: 1rem; }
       .contact-info { grid-template-columns: 1fr; }
       .form-grid { grid-template-columns: 1fr; }
       .form-group.full { grid-column: 1; }
@@ -305,12 +367,17 @@
 <body>
 
   <nav>
-    <a href="/Pairly/" class="nav-logo">🌸 Pairly</a>
-    <ul class="nav-links">
-      <li><a href="/Pairly/privacy-policy/">Privacy Policy</a></li>
-      <li><a href="/Pairly/terms-of-service/">Terms of Service</a></li>
-      <li><a href="/Pairly/contact/" class="active">Contact</a></li>
+    <a href="../" class="nav-logo">🌸 Pairly</a>
+    <ul class="nav-links" id="nav-menu">
+      <li><a href="../privacy-policy/">Privacy Policy</a></li>
+      <li><a href="../terms-of-service/">Terms of Service</a></li>
+      <li><a href="../contact/" class="active">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
 
   <main class="page-wrapper">
@@ -344,7 +411,7 @@
         Something went wrong. Please try again or email us directly at support@pairly.app
       </div>
 
-      <form id="contact-form" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/xqegavwj" method="POST" novalidate>
         <div class="form-grid">
 
           <div class="form-group">
@@ -395,12 +462,29 @@
   </footer>
 
   <script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = navMenu.querySelectorAll('a');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+
+  <script>
     const form = document.getElementById('contact-form');
     const toastSuccess = document.getElementById('toast-success');
     const toastError = document.getElementById('toast-error');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    form.addEventListener('submit', (e) => {
       toastSuccess.style.display = 'none';
       toastError.style.display = 'none';
 
@@ -411,17 +495,14 @@
 
       if (!name || !email || !subject || !message) {
         toastError.style.display = 'flex';
+        e.preventDefault();
         return;
       }
 
-      // Mailto fallback — works without a backend
-      const mailto = `mailto:dklochanaedirisooriya@gmail.com?subject=${encodeURIComponent('[Pairly Support] ' + subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
-      window.location.href = mailto;
-
-      // Show success after a short delay
+      // Form will submit to Formspree
+      // Show success message after submission
       setTimeout(() => {
         toastSuccess.style.display = 'flex';
-        form.reset();
       }, 500);
     });
   </script>
